@@ -3,7 +3,7 @@ Positive/Negative weight calculator based on time.
 
 
 
-<a href="https://mycodely.github.io/WeightCalculator/" target="_blank"> </a>
+<p> <p><a href="https://mycodely.github.io/WeightCalculator/index.js" target="_blank"> Test it Here</a>
 
 
 
