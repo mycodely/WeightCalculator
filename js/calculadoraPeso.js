@@ -1,54 +1,44 @@
-/* Calculadora que estime un cambio de peso positivo/negativo segun :
-- Peso ingresado inicial
-- Pérdida de peso semanal(coeficiente)
-- Peso objetivo
-- Tiempo estimado
+// Function for the calculate button
+const handleCalculateClick = () => {
+  // Obtener los valores ingresados por el usuario
+  let initWeight = Number(document.getElementById("init-weight").value);
+  let weeklyCoeff = Number(document.getElementById("weekly-coeff").value);
+  let targetWeight = Number(document.getElementById("target-weight").value);
 
-¿Que outputs generará?
-Puede ser un objeto en el que diga:
-- Diferencia entre los pesos que se quiere llegar
-- Registro semanal basado en el coeficiente
+  // Asignar los valores al objeto weightCalculator
+  weightCalculator.initWeight = initWeight;
+  weightCalculator.weeklyCoefficient = weeklyCoeff;
+  weightCalculator.targetWeight = targetWeight;
 
-First approach:
-function calc(pesoInicial, coeficiente, pesoObjetivo) {
-  // Calcula el cambio de peso semanal
-  const cambioPesoSemanal = pesoInicial - pesoObjetivo > 0 ? -coeficiente : coeficiente;
+  // Calcular el tiempo estimado y el registro semanal
+  weightCalculator.calculateEstimatedTime();
+  weightCalculator.generateWeeklyReg(weightCalculator.weeklyCoefficient);
 
-  // Calcula el tiempo necesario para llegar al peso objetivo en semanas
-  const tiempoEstimadoSemanas = Math.ceil(Math.abs((pesoInicial - pesoObjetivo) / cambioPesoSemanal));
+  // Mostrar los resultados en la página
+  document.getElementById("estimated-time").textContent = `El tiempo estimado en semanas para llegar al peso objetivo es: ${weightCalculator.estimatedTime}`;
+  document.getElementById("weekly-reg").textContent = `Tu registro semanal de peso es: ${weightCalculator.weeklyReg}`;
+};
 
-  // Convierte el tiempo estimado a horas
-  const tiempoEstimadoHoras = tiempoEstimadoSemanas * 7 * 24;
+// Función para manejar el evento de clic en el botón "Resetear"
+const handleResetClick = () => {
+  // Reiniciar los valores del objeto weightCalculator
+  weightCalculator.initWeight = 0;
+  weightCalculator.weeklyCoefficient = 0;
+  weightCalculator.targetWeight = 0;
+  weightCalculator.estimatedTime = 0;
+  weightCalculator.weeklyReg = [];
 
-  return { cambioPesoSemanal, tiempoEstimadoSemanas, tiempoEstimadoHoras };
-}
+  // Limpiar los valores de los campos de entrada y los resultados en la página
+  document.getElementById("init-weight").value = "";
+  document.getElementById("weekly-coeff").value = "";
+  document.getElementById("target-weight").value = "";
+  document.getElementById("estimated-time").textContent = "";
+  document.getElementById("weekly-reg").textContent = "";
+};
 
-console.log(calc(60, 1, 58))
-
-
-// Generar el registro semanal usando el coeficiente por defecto
-weightCalculator.generateWeeklyRecord();
-console.log(`Tu registro semanal de peso es: ${weightCalculator.weeklyReg}`);
-
- // Generar el registro semanal con un coeficiente personalizado para la segunda semana
-weightCalculator.generateWeeklyReg({ week: 1, value: 0.3 });
-console.log(`Tu registro semanal de peso con coeficiente personalizado es: ${weightCalculator.weeklyRecord}`); 
-
-solo funcion a en positivo
-
-generateWeeklyReg(coefficient) {
-    let currentWeight = this.initWeight;
-
-    for (let i = 0; i < this.estimatedTime; i++) {
-      currentWeight -= (coefficient !== undefined && i === coefficient.week) ? coefficient.value : this.weeklyCoefficient;
-      this.weeklyReg.push(currentWeight.toFixed(2));
-    }
-  }, 
-
-
-
-*/
-
+const handleSaveClick = () => {
+  document.write("Not working yet");
+ };
 
 const weightCalculator = {
   initWeight: 0,
@@ -85,9 +75,16 @@ const weightCalculator = {
   }, 
 };
 
+// Event Listeners
+document.getElementById("calculate-button").addEventListener("click", handleCalculateClick);
+document.getElementById("reset-button").addEventListener("click", handleResetClick);
+document.getElementById("save-button").addEventListener("click", handleSaveClick);
+
+
+/* TESTS
 // Ejemplo de uso decreciente
 console.log("Test negativo perdida de peso");
-weightCalculator.initWeight = 60;
+weightCalculator.initWeight = 55;
 weightCalculator.weeklyCoefficient = 1;
 weightCalculator.targetWeight = 50;
 weightCalculator.calculateEstimatedTime();
@@ -118,7 +115,7 @@ weightCalculator.generateWeeklyReg(weightCalculator.weeklyCoefficient);
 console.log(`Tu registro semanal de peso es: ${weightCalculator.weeklyReg}`);
 
 console.log(`La diferencia de peso entre el inicial (${weightCalculator.initWeight}) y el objetivo (${weightCalculator.targetWeight}) es ${weightCalculator.calculateWeightDif()}kg`);
-
+*/
 
 
 
