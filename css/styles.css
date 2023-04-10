@@ -64,18 +64,60 @@ nav a{
 
 }
 
+#form1 {
+    margin-bottom: 2em;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: fit-content;
+    
+  }
+  
+  #estimated-time {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #weekly-reg table {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    margin-top: 10px;
+    overflow-y: auto;
+  } 
+
+  table{
+    background-color: white;
+    width: 300px;
+    border-collapse: collapse;
+  }
+
+  th,td{
+    border: solid 1px black;
+    padding: 10px;
+
+  }
+
 .divider{
-    margin: 0px 0;
+  margin: 0px 0;
     border: none;
     height: 10px;
     background-color:black;
+
 }
 
-section{
+section {
     flex: 70%;
     background-color: khaki;
     padding: 20px;
-}
+    max-height: calc(100vh -150px);
+    overflow-y: auto;
+  }
+
 
 footer{
     padding: 20px;
