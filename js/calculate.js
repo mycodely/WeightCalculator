@@ -23,8 +23,13 @@ const weightCalculator = {
       let currentWeight = this.initWeight;
       let futureWeight = this.targetWeight;
   
+  /*Usando while para verificar si se alcanzo el peso
   
-      // debo modificar la cuenta para que haga verificacion de suma o resta al registrar en el array los cambios
+   while (Math.abs(currentWeight - futureWeight) >= Math.abs(coefficient)) {
+    currentWeight += coefficient;
+    this.weeklyReg.push(currentWeight.toFixed(2));
+  } */
+  
       for (let i = 0; i < this.estimatedTime; i++) {
         currentWeight > futureWeight ? currentWeight = currentWeight - this.weeklyCoefficient : currentWeight = currentWeight + this.weeklyCoefficient;
         
@@ -33,4 +38,5 @@ const weightCalculator = {
     }, 
   };
 
+  
   export default weightCalculator;
