@@ -20,6 +20,4 @@ As my first project, I wanted to create something useful for my friends, family,
 - `F3`: Estimate the time required based on the rate at which you're losing/gaining weight
 
 
-To do:
-- Add method to edit differents weeks and consequently the estimated time to reach the target weight.
-- Frontend UI
+<p> <p><a href="https://mycodely.github.io/WeightCalculator/index.js" target="_blank"> Test it Here</a>
