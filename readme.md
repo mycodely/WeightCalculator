@@ -20,4 +20,4 @@ As my first project, I wanted to create something useful for my friends, family,
 - `F3`: Estimate the time required based on the rate at which you're losing/gaining weight
 
 
-<p> <p><a href="https://mycodely.github.io/WeightCalculator/index.js" target="_blank"> Test it Here</a>
+<p> <p><a href="https://mycodely.github.io/WeightCalculator/js/index.html" target="_blank"> Test it Here</a>
